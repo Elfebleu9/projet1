@@ -3,7 +3,7 @@
 {% block title %}Hello PinsController!{% endblock %}
 
 {% block body %}
-    <a href={{path('app_create')}}>Créer un pin </a>
+    <a href={{path('app_pins_create')}}>Créer un pin </a>
     {% for pin in pins %}
         <article>
             <h1>{{pin.title}}</h1>

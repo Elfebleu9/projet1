@@ -10,17 +10,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class PinsController extends AbstractController
 {
     /**
-     * @Route("/", name="app_home", methods="GET")
+     * @Route("/")
      */
     public function index(PinRepository $repo):Response
-    {    
-        return $this->render('pins/index.html.twig',['pins'=>$repo->findAll()]);  
-    }
-    /**
-     * @Route("/pins/create", name="app_create", methods={"GET","POST"})
-     */
-    public function create()
     {
-        return $this->render('pins/create.html.twig');
+        
+        return $this->render('pins/index.html.twig',['pins'=>$repo->findAll()]);
+        dd($pin);
+        
     }
 }
