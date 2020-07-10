@@ -297,6 +297,12 @@
             "./config/routes.yaml"
         ]
     },
+    "symfony/security-core": {
+        "version": "v5.1.2"
+    },
+    "symfony/security-csrf": {
+        "version": "v5.1.2"
+    },
     "symfony/service-contracts": {
         "version": "v2.1.2"
     },

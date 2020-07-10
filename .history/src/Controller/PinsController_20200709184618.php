@@ -22,15 +22,6 @@ class PinsController extends AbstractController
     {    
         return $this->render('pins/index.html.twig',['pins'=>$repo->findAll()]);  
     }
-    
-    /**
-     * @Route(/pins/1)
-     */
-    public function show ()
-    {
-        return $this->render('pins/show.html.twig');
-    }
-
     /**
      * @Route("/pins/create", name="app_create", methods={"GET","POST"})
      */
