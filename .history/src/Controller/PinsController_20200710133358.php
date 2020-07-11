@@ -24,15 +24,17 @@ class PinsController extends AbstractController
     }
 
     /**
-     * @Route("/pins/{id<[0-9]+>}")
+     * @Route("/pins/{id}")
      */
-    public function show (Pin $pin):Response
+    public function show (PinRepository $repo, int $id):Response
     {
+        $pin = $repo->find($id);
+        
         return $this->render('pins/show.html.twig', compact('pin'));
     }
 
     /**
-     * @Route("/pins/create", name="app_pins_create", methods={"GET","POST"})
+     * @Route("/pins/create", name="app_create", methods={"GET","POST"})
      */
     public function create(Request $request, EntityManagerInterface $em):Response
     {
@@ -44,12 +46,12 @@ class PinsController extends AbstractController
         ;
         $form -> handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if($form->isSubmitted()&&$form-> isValid()){
 
             $form->getData();     
             $em->persist($pin);
             $em->flush();
-            return $this-> redirectToRoute('app_pins_show',['id'=>$pin->getId()]);
+            return $this-> redirectToRoute('app_home');
         }
         return $this->render('pins/create.html.twig',['form'=>$form->createView()]);
     }

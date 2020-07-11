@@ -7,7 +7,7 @@
     <a href="{{path('app_pins_create')}}">Créer un pin </a>
     {% for pin in pins %}
         <article>
-            <h1><a href="{{path('app_pins_show',{id:pin.id})}}">{{pin.title}}</a></h1>
+            <h1><a href="{{path('app_pins_show')}}">{{pin.title}}</a></h1>
             <p>{{pin.description}}</p>
         </article>
     {% else %}

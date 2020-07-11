@@ -44,12 +44,12 @@ class PinsController extends AbstractController
         ;
         $form -> handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()){
+        if($form->isSubmitted()&&$form-> isValid()){
 
             $form->getData();     
             $em->persist($pin);
             $em->flush();
-            return $this-> redirectToRoute('app_pins_show',['id'=>$pin->getId()]);
+            return $this-> redirectToRoute('app_home');
         }
         return $this->render('pins/create.html.twig',['form'=>$form->createView()]);
     }

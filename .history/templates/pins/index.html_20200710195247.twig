@@ -4,10 +4,10 @@
 
 {% block body %} 
     <h1>Tous les pins</h1>
-    <a href="{{path('app_pins_create')}}">Créer un pin </a>
+    <a href={{path('app_create')}}>Créer un pin </a>
     {% for pin in pins %}
         <article>
-            <h1><a href="{{path('app_pins_show',{id:pin.id})}}">{{pin.title}}</a></h1>
+            <h1><a href="">{{pin.title}}</a></h1>
             <p>{{pin.description}}</p>
         </article>
     {% else %}
